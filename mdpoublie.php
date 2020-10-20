@@ -1,28 +1,15 @@
 <?php 
 
     session_start();
-/*    if (empty($_SESSION) && !isset($_SESSION['username'])){
-        header('Location: index.php'); 
-    } 
 
 
-*/
  include 'bdd.php';
-$errorUpdate  = []; // erreur lors de la mise Ã  jour de la table 
-$showError = false;
-$showSuccess = false;
-$userOk    = false;
+$errorUpdate  = []; // Erreur lors de la mise Ã  jour de la table 
+$showError = false; // Déclaration affichage des erreurs sur faux
+$showSuccess = false; // Déclaration de la variable réussite de la connection sur faux
+$userOk    = false; // Variable du pseudo existe sur faux
 
 
-
-
-/*if(isset($_GET['username'])) {
-    if( $req->execute()) {
-        $userExist = true;
-    } else {
-            echo 'accès bdd échouer';
-        }
-}*/ 
 if(!empty($_POST['username'])) {
     $username = htmlspecialchars($_POST['username']);
 
@@ -40,18 +27,18 @@ if(!empty($_POST['username'])) {
     //Si le pseudo saisie n'existe pas : message d'erreur
     if(!$userExist){            
         $error[] = 'le pseudo n\'existe pas';   
-    }
+    }//Si le champ pseudo est vide : message d'erreur
     if(!$username) {
-        $error[] = 'merci d\'enter un pseudonyme';
+        $error[] = 'merci d\'entrer un pseudo';
     }
-    
+    //Si existence de message d'erreur
     if(count($error) > 0) {
         $showError = true;
     } else {
         header('Location: mdpoublie.php?username='.$user['username']);
 
     }
-} 
+} //Récupération des données du pseudo
 if(isset($_GET['username']) AND !empty($_GET['username']) AND is_string($_GET['username'])) {
     $username = $_GET['username'];
     $req = $bdd->prepare('SELECT * FROM salaries WHERE username = :username');
@@ -65,7 +52,7 @@ if(isset($_GET['username']) AND !empty($_GET['username']) AND is_string($_GET['u
             $userQuestion = $user['question'];
         }
     }
-}
+} // Déclaration des variables 
 if (!empty($_POST) && $userOk == true) {
     foreach ($_POST as $key => $value) {
         $post[$key] = htmlspecialchars($value);
@@ -87,10 +74,10 @@ if (!empty($_POST) && $userOk == true) {
     }
     if (count($errorUpdate) > 0) {
         $showError = true;
-    } else {
+    } else { // Création d'un nouveau mdp
         $newPws = password_hash($post['newpassword'], PASSWORD_DEFAULT);
         $upd = $bdd->prepare('UPDATE salaries   SET password = :password WHERE username = :username');
-        $upd->bindValue(':username', $userExist,           PDO::PARAM_STR);
+        $upd->bindValue(':username', $userExist, PDO::PARAM_STR);
         $upd->bindValue(':password', $newPws, PDO::PARAM_STR);
         if ($upd->execute()) {
             $showSuccess = true;
@@ -108,7 +95,7 @@ if (!empty($_POST) && $userOk == true) {
     <head>
         <meta charset=UTF-8>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="texte/css" href="style5.css"> 
+        <link rel="stylesheet" href="stylemdpo.css"> 
         <title>Mot de passe oublié</title>
     </head>
     <body>
@@ -127,48 +114,57 @@ if (!empty($_POST) && $userOk == true) {
                     <form method="post" action="">
                         <fieldset>
                             <legend>MODIFIER MOT DE PASSE</legend>
-                                
-                                <div id=message1>
-                                    <ol>
-                                        <?php 
+                            <ol>
+                                <li>
+                                <div id=message2>
+                                  <?php 
                                         if ($showError) {
                                             echo implode('<li>', $error) .'</li>';
-                                        }?>
-                                    </ol>
-                                </div> 
-                                <p><label for="pseudo">Pseudo</label><input type="text" name="username" id="pseudo"></p>
-                               <p> <input type="submit" name="mdpoublie" value="VALIDER" /></p>
-                               
+                                    }?>
+                                </div>
+                                <label for="pseudo">Pseudo</label><input type="text" name="username" id="pseudo">
+                                 
+                                <p><input type="submit" name="mdpoublie" value="VALIDER" /></p>
+                                </li> 
+                            </ol>
                         </fieldset>
                      </form>
                 <?php endif; ?>
                    
                 <?php if(isset($_GET['username'])): ?>
-               
                     <form method="post" action="">
-                        <?php 
-                        if ($showError) {
-                            echo implode('<br>', $errorUpdate) . '<br>';
-                        }
-                        if($showSuccess) {
-                            echo 'Mot de passe modifié avec success<br>';
-                        }
-                        ?> 
+                        <fieldset>
+                            <legend>MODIFIER MOT DE PASSE</legend>
+                            <ol>
+                                <li>
+                                <?php 
+                                if ($showError) {
+                                    echo implode('<br>', $errorUpdate) . '<br>';
+                                }
+                                if($showSuccess) {
+                                    echo 'Mot de passe modifié avec succés<br>';
+                                }
+                                ?> 
+                                <div id= label>
+                                <label for="question">Question</label>
+                                <input type="text" id="question" value="<?= $userQuestion; ?>"/><br />
+                             
+                                <label for="reponse">Réponse</label>
+                                <input type="text" id="reponse" name="reponse"><br />
+                          
+                                <label for="newpassword">Nouveau mot de passe</label>
+                                <input type="password" id="newpassword" name="newpassword"><br />
+                           
+                                <label for="password2">Confirmation mot de passe</label>
+                                <input type="password" id="password2" name="password2"><br />
 
-                        <label for="question">Question</label>
-                        <input type="text" id="question" value="<?= $userQuestion; ?>"/><br />
-                     
-                        <label for="reponse">Réponse</label>
-                        <input type="text" id="reponse" name="reponse"><br />
-                  
-                        <label for="newpassword">Nouveau mot de passe</label>
-                        <input type="password" id="newpassword" name="newpassword"><br />
-                   
-                        <label for="password2">Confirmation mot de passe</label>
-                        <input type="password" id="password2" name="password2"><br />
-                   
-                        <p><input type="submit" name="mdpoublie" value="VALIDER" /></p><br />
-            
+                                </div>
+                           
+                                <p><input type="submit" name="mdpoublie" value="VALIDER" /></p><br />
+                                </li>
+                                <p><a href="index.php">Connectez-vous !</a></p>
+                            </ol>
+                        </fieldset>
                     </form>
                 <?php endif; ?>
                 </section>
