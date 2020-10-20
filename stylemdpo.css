@@ -23,6 +23,7 @@ header
 display: flex;
 justify-content: space-around;
 margin-bottom: 10px;
+
 }
 
 #nom_logo
@@ -35,6 +36,7 @@ font-size: 20px;
 
 form
 {
+margin: auto;
 background: #8d99ae;
 width: 800px;
 padding: 15px 10px 0 10px;
@@ -72,26 +74,25 @@ line-height: 30px;
 list-style: none;
 padding: 5px 10px;
 margin-bottom: 2px;
+height: 200px;
 }
 
 #message1
 {
 font-size: 15px;
-font-weight: bold;
 color : green;
 text-align: center;
-width: 450px;
-height: 40px;
+width: 750px;
+height: 60px;
 }
 
 #message2
 {
-font-size: 20px;
+font-size: 15px;
 color: red;
 text-align: center;
-width: 700px;
-height: 100px;
-
+width: 750px;
+height: 60px;
 }
 
 form label
@@ -132,7 +133,6 @@ p
 {
 font-size: 20px;
 text-align: center;
-
 }
 
 p input
@@ -182,14 +182,12 @@ justify-content: space-around;
 height: 600px;
 margin: auto;
 width: 900px;
-
 }
 
 form
 {
 margin: auto;
 }
-
 
 }
 
@@ -207,7 +205,6 @@ justify-content: space-around;
 height: 600px;
 margin: auto;
 width: 700px;
-
 }
 
 form
@@ -230,7 +227,6 @@ width: 450px;
 {
 width: 300px;
 }
-
 
 }
 
@@ -364,7 +360,6 @@ header
 display: flex;
 flex-direction: column;
 align-items: center;
-
 }
 
 #nom_logo
