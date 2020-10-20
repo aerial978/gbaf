@@ -6,9 +6,7 @@
     } 
 
 
-$error = [];
-$showSuccess = false;
-$userExist = false;*/
+*/
  include 'bdd.php';
 $errorUpdate  = []; // erreur lors de la mise Ã  jour de la table 
 $showError = false;
