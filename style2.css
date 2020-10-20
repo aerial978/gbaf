@@ -1,0 +1,367 @@
+body 
+{
+font-family: arial;
+}
+
+#bloc_page
+{
+margin: 3.5rem;
+background: #e8eaee;
+box-shadow: 0 1rem 3rem;
+overflow: hidden;
+}
+
+#logoform
+{
+height: 600px;
+margin: auto;
+width: 900px;
+}
+
+header
+{
+display: flex;
+justify-content: space-around;
+margin-bottom: 10px;
+}
+
+#nom_logo
+{
+display: flex;
+align-items: center;
+color: black;
+font-size: 20px;
+}
+
+form
+{
+background: #8d99ae;
+width: 800px;
+padding: 15px 10px 0 10px;
+box-shadow:  -5px -5px  #2b2d42;
+box-shadow: 0 0 10px 5px #2b2d42;
+}
+
+form ol 
+{
+padding: 0px;
+}
+
+form fieldset
+{
+border: none;
+margin-bottom: 10px;
+}
+
+form legend
+{
+margin: auto;
+color: #edf2F4;
+font-size: 25px;
+font-weight: bold;
+}
+
+form ol li
+{
+background: #f2f4ed;
+border-color: #2b2d42;
+border-style: solid;
+border-width: 2px;
+border-radius: 5px;
+line-height: 30px;
+list-style: none;
+padding: 5px 10px;
+margin-bottom: 2px;
+}
+
+#message1
+{
+font-weight: bold;
+color : green;
+text-align: center;
+width: 750px;
+height: 40px;
+}
+
+#message2
+{
+font-size: 14px;
+font-weight: bold;
+color: red;
+text-align: center;
+width: 750px;
+height: 40px;
+}
+
+#espace
+{
+height: 20px;
+}
+
+form label
+{
+text-align: right;
+font-size: 18px;
+width: 100px;
+}
+
+form input
+{
+float: right;
+background: #fff;
+border: none;
+border-radius: 3px;
+padding: 5px;
+width: 395px;
+height: 15px;
+margin-bottom: 3px;
+}
+
+form input:focus
+{
+background: #eaeaea;
+}
+
+form input:invalid
+{
+border: 1px solid #ef233c;
+}
+
+form input:valid
+{
+border: 1px solid green;
+}
+
+p
+{
+font-size: 20px;
+text-align: center;
+
+}
+
+p input
+{
+width: 150px;
+height: 30px;
+}
+
+p input:hover
+{
+background: green;
+}
+
+a
+{
+text-decoration: none;
+}
+
+footer
+{
+margin-top: 60px;
+display: flex;
+height: 40px;
+background: #ef233c;		
+}
+
+@media (max-width: 1000px) {
+
+header
+{
+display: flex;
+justify-content: space-around;
+
+}
+
+#logoform
+{
+height: 600px;
+margin: auto;
+width: 700px;
+
+}
+
+form
+{
+width: 600px;
+}
+
+form ol li
+{
+width: 550px;
+height: 350px;
+}
+
+#input form label
+{
+width: 100px;
+font-size: 15px;
+}
+
+#label input
+{
+width: 300px;
+}
+
+}
+
+@media (max-width: 800px) {
+
+#nom_logo
+{
+font-size: 17px;
+}
+
+#logoform
+{
+height: 800px;
+margin: auto;
+width: 600px;
+}
+
+form
+{
+margin: auto;
+width: 500px;
+height: 550px;
+}
+
+form ol li
+{
+width: 450px;
+height: 350px;
+}
+
+form label
+{
+text-align: center;
+font-size: 18px;
+width: 450px;
+}
+
+}
+  
+@media (max-width: 650px) {
+
+header
+{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+#nom_logo
+{
+font-size: 17px;
+}
+
+#logoform
+{
+height: 800px;
+margin: auto;
+width: 500px;
+
+}
+
+form
+{
+width: 400px;
+height: 900px;
+margin-bottom: 100px;
+
+}
+
+form ol li
+{
+width: 350px;
+height: 775px;
+}
+
+#message1, #message2
+{
+width: 400px;
+}
+
+form label
+{
+text-align: center;
+font-size: 15px;
+width: 450px;
+}
+
+#label
+{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+footer
+{
+margin-top: 350px;
+}
+
+}
+
+@media (max-width: 500px) {
+
+header
+{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+#nom_logo
+{
+font-size: 15px;
+text-align: center;
+}
+
+form legend
+{
+width: 250px;
+text-align: center;
+font-size: 18px;
+font-weight: bold;
+}
+
+#logoform
+{
+height: 800px;
+margin: auto;
+width: 350px;
+}
+
+form
+{
+width: 300px;
+height: 975px;
+}
+
+form ol li
+{
+width: 250px;
+height: 800px;
+}
+
+#message1, #message2
+{
+width: 250px;
+}
+
+form label
+{
+text-align: center;
+font-size: 14px;
+width: 150px;
+}
+
+#label input
+{
+width: 225px;
+}
+
+footer
+{
+margin-top: 450px;
+}
