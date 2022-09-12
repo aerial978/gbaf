@@ -60,7 +60,7 @@ require('actions/signupAction.php');
                     </div>
                     <button class="btn" type="submit" name="submit">Submit</button>
                     <div class="form-link">
-                        <p>Already an account ? <a href="inscription.php">Sign in !</a></p>
+                        <p>Already an account ? <a href="index.php">Sign in !</a></p>
                     </div>
                 </form>
             </div>
