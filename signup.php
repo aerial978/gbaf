@@ -9,7 +9,7 @@ require('actions/signupAction.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets/images/logo-gbaf.png" />
-    <title>Sign up - GBAF</title>
+    <title>Inscription - GBAF</title>
     <link rel="stylesheet" href="assets/css/formStyle.css">
     <link rel="stylesheet" href="assets/css/msgStyle.css">
 </head>
@@ -25,42 +25,42 @@ require('actions/signupAction.php');
                 </div>
             </div>
             <div class="form">
-                <h1 class="form-title">Sign up</h1>
+                <h1 class="form-title">Créer un compte</h1>
                 
                 <?php include 'includes/messageFlash.php'; ?>
                 
                 <form class="sign-form" method="POST">
                     <div class="field">
-                        <label for="username">Username</label>
+                        <label for="username">Pseudo</label>
                         <input class="input" type="text" name="username">
                     </div>
                     <div class="field">
-                        <label for="firstname">First name</label>
+                        <label for="firstname">Nom</label>
                         <input class="input" type="text" name="firstname">
                     </div>
                     <div class="field">
-                        <label for="lastname">Last name</label>
+                        <label for="lastname">Prénom</label>
                         <input class="input" type="text" name="lastname">
                     </div>
                     <div class="field">
-                        <label for="question">Secret Question</label>
+                        <label for="question">Question secrète</label>
                         <input class="input" type="text" name="question">
                     </div>
                     <div class="field">
-                        <label for="answer">Secret Answer</label>
+                        <label for="answer">Réponse secrète</label>
                         <input class="input" type="text" name="answer">
                     </div>
                     <div class="field">
-                        <label for="password">Password</label>
+                        <label for="password">Mot de passe</label>
                         <input class="input" type="password" name="password">
                     </div>
                     <div class="field">
-                        <label for="password">Confirm Password</label>
+                        <label for="password">Confirmation<br>mot de passe</label>
                         <input class="input" type="password" name="confirmpassword">
                     </div>
-                    <button class="btn" type="submit" name="submit">Submit</button>
+                    <button class="btn" type="submit" name="submit">S'inscrire</button>
                     <div class="form-link">
-                        <p>Already an account ? <a href="index.php">Sign in !</a></p>
+                        <p>Déjà un compte ? <a href="index.php">Se connecter !</a></p>
                     </div>
                 </form>
             </div>
@@ -68,7 +68,3 @@ require('actions/signupAction.php');
     <div class="bottom-band"></div>
 </body>
 </html>
-
-<style>
-    
-</style>
