@@ -1,5 +1,5 @@
 <?php
-require('actions/indexAction.php');
+require('actions/forgetAction.php');
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ require('actions/indexAction.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets/images/logo-gbaf.png" />
-    <title>Connexion - GBAF</title>
+    <title>Forget - GBAF</title>
     <link rel="stylesheet" href="assets/css/formStyle.css">
     <link rel="stylesheet" href="assets/css/msgStyle.css">
 </head>
@@ -25,7 +25,7 @@ require('actions/indexAction.php');
                 </div>
             </div>
             <div class="form">
-                <h1 class="form-title">Connexion</h1>
+                <h1 class="form-title">Forget Password</h1>
                 
                 <?php include 'includes/messageFlash.php'; ?>
                 
@@ -34,15 +34,7 @@ require('actions/indexAction.php');
                         <label for="username">Pseudo</label>
                         <input class="input" type="text" name="username">
                     </div>
-                    <div class="field">
-                        <label for="password">Mot de passe</label>
-                        <input class="input" type="password" name="password">
-                    </div>
-                    <button class="btn" type="submit" name="submit">Se connecter</button>
-                    <div class="form-link">
-                        <a href="signup.php"><p>Pas encore de compte ? Inscrivez-vous !</p></a>
-                        <a href="forget.php"><p>Mot de passe oublié ?</p></a>
-                    </div>
+                    <button class="btn" type="submit" name="submit">Soumettre</button>
                 </form>
             </div>
         </div>

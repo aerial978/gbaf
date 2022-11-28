@@ -1,5 +1,5 @@
 <?php
-require('actions/indexAction.php');
+require('actions/questionAction.php');
 ?>
 
 <!DOCTYPE html>
@@ -9,12 +9,12 @@ require('actions/indexAction.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets/images/logo-gbaf.png" />
-    <title>Connexion - GBAF</title>
+    <title>Question - GBAF</title>
     <link rel="stylesheet" href="assets/css/formStyle.css">
     <link rel="stylesheet" href="assets/css/msgStyle.css">
 </head>
 <body>
-    <div class="top-band"></div>
+<div class="top-band"></div>
         <div class="container">
             <div class="brand">
                 <div class="logo">
@@ -25,24 +25,24 @@ require('actions/indexAction.php');
                 </div>
             </div>
             <div class="form">
-                <h1 class="form-title">Connexion</h1>
+                <h1 class="form-title">Question secrète</h1>
                 
                 <?php include 'includes/messageFlash.php'; ?>
                 
                 <form class="sign-form" method="POST">
                     <div class="field">
                         <label for="username">Pseudo</label>
-                        <input class="input" type="text" name="username">
+                        <input class="input" type="text" name="username" disabled value="<?= $user['username'] ?>">
                     </div>
                     <div class="field">
-                        <label for="password">Mot de passe</label>
-                        <input class="input" type="password" name="password">
+                        <label for="username">Question</label>
+                        <input class="input" type="text" name="question" disabled value="<?= $user['question'] ?>">
                     </div>
-                    <button class="btn" type="submit" name="submit">Se connecter</button>
-                    <div class="form-link">
-                        <a href="signup.php"><p>Pas encore de compte ? Inscrivez-vous !</p></a>
-                        <a href="forget.php"><p>Mot de passe oublié ?</p></a>
+                    <div class="field">
+                        <label for="answer">Répondre</label>
+                        <input class="input" type="text" name="answer">
                     </div>
+                    <button class="btn" type="submit" name="submit">Soumettre</button>
                 </form>
             </div>
         </div>
