@@ -4,3 +4,10 @@ if (isset($errorMsg)) { ?>
         <?php echo $errorMsg; ?>
     </div>
 <?php } ?>
+
+<?php
+if (isset($_SESSION['successMsg'])) { ?>
+    <div class="success-msg">
+        <?php echo $_SESSION['successMsg']; ?>
+    </div>
+<?php } ?>

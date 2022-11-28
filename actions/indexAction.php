@@ -2,7 +2,7 @@
 require('actions/database.php');
 
 if (isset($_POST['submit'])) {
-    if (!empty($_POST['username']) && !empty($_POST['password'])) {
+    if (!empty($_POST['username']) | !empty($_POST['password'])) {
         $username = htmlspecialchars($_POST['username']);
         $password = htmlspecialchars($_POST['password']);
 
@@ -23,7 +23,6 @@ if (isset($_POST['submit'])) {
         } else {
             $errorMsg = "Invalid username or password !";
         }
-
     } else {
         $errorMsg = "Please complete all fields !";
     }

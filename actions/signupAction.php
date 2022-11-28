@@ -9,13 +9,13 @@ if (isset($_POST['submit'])) {
         $question = htmlspecialchars($_POST['question']);
         $answer = password_hash($_POST['answer'], PASSWORD_DEFAULT);
         $password = htmlspecialchars($_POST['password']);
-        $confirmPassword = htmlspecialchars($_POST['confirmpassword']);
+        $passwordConfirm = htmlspecialchars($_POST['password_confirm']);
 
         $checkUser = $bdd->prepare('SELECT username FROM user WHERE username = ?');
         $checkUser->execute(array($username));
 
         if ($checkUser->rowCount() == 0) {
-            if ($password == $confirmPassword) {
+            if ($password == $password_confirm) {
                 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $insertUser = $bdd->prepare('INSERT INTO user (username, first_name, last_name, question, answer, password) VALUES(?, ?, ?, ?, ?, ?)');
                 $insertUser->execute(array($username,$firstname,$lastname,$question,$answer,$password));
