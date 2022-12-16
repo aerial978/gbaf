@@ -1,5 +1,4 @@
 <?php
-
 require('actions/homeAction.php');
 
 ?>
@@ -26,9 +25,11 @@ require('actions/homeAction.php');
                     <h2>Groupe Bancaire-Assurance Francais</h2>
                 </div>
                 <div class="user-session">
-                    <div class="avatar-user">
-                        <img src="../assets/images/user-default.png" alt="avatar">
-                    </div>
+                    <?php if (isset($_SESSION['id'])) : ?>
+                        <div class="avatar-user">  
+                            <a href="account_user.php?id=<?= $_SESSION['id']; ?>"><img src="../assets/images/user-default.png" alt="avatar"></a>
+                        </div>
+                    <?php endif; ?>
                     <?php if (isset($_SESSION['auth'])) : ?>
                         <div class="username">
                             <p><?= $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?></p>
