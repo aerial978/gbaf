@@ -88,6 +88,19 @@
         padding: 5px 7px;
     }
 
+    .sign-form .form-field {
+        position : relative;
+        margin-bottom: 25px;
+    }
+
+    .sign-form .error-field {
+        position: absolute;
+        color: red;
+        font-weight: bold;
+        left: 30%;
+        top: 35px;
+    }
+
     .sign-form .btn {
         width: 100%;
         padding: 8px 10px;

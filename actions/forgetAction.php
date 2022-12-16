@@ -14,10 +14,10 @@ if (isset($_POST['submit'])) {
             $_SESSION['successMsg'] = "Veuillez saisir la réponse à votre question !";
             header('Location: question.php?username='.$getUsername['username']);
         } else {
-            $errorMsg = "Invalid username !";
+            $errorMsg = "Pseudo invalide !";
         }
     } else {
-        $errorMsg = "Invalid username !";
+        $errorMsg = "Pseudo invalide !";
     }
 }
 

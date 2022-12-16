@@ -49,3 +49,4 @@ require('actions/indexAction.php');
     <div class="bottom-band"></div>
 </body>
 </html>
+<?php unset($_SESSION['successMsg']);

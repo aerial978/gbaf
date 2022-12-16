@@ -2,7 +2,8 @@
 require('actions/database.php');
 
 if (isset($_POST['submit'])) {
-    if (!empty($_POST['username']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['question']) && !empty($_POST['answer']) && !empty($_POST['password'] && !empty($_POST['confirmpassword']))) {
+    if (!empty($_POST['username']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['question']) && !empty($_POST['answer']) 
+    && !empty($_POST['password'] && !empty($_POST['password_confirm']))) {
         $username = htmlspecialchars($_POST['username']);
         $firstname = htmlspecialchars($_POST['firstname']);
         $lastname = htmlspecialchars($_POST['lastname']);
@@ -15,7 +16,7 @@ if (isset($_POST['submit'])) {
         $checkUser->execute(array($username));
 
         if ($checkUser->rowCount() == 0) {
-            if ($password == $password_confirm) {
+            if ($password == $passwordConfirm) {
                 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $insertUser = $bdd->prepare('INSERT INTO user (username, first_name, last_name, question, answer, password) VALUES(?, ?, ?, ?, ?, ?)');
                 $insertUser->execute(array($username,$firstname,$lastname,$question,$answer,$password));
@@ -27,14 +28,14 @@ if (isset($_POST['submit'])) {
                 $_SESSION['firstname'] = $firstname;
                 $_SESSION['lastname'] = $lastname;
 
-                header('Location: home.php');
+                header('Location: index.php');
             } else {
-                $errorMsg = "Invalid password !";
+                $errorMsg = "Mot de passe invalide !";
             }
         } else {
-            $errorMsg = "User already used !";
+            $errorMsg = "Utilisateur existe déjà !";
         }
     } else {
-        $errorMsg = "Please complete all fields !";
+        $errorMsg = "Veuillez remplir tous les champs !";
     }
 }

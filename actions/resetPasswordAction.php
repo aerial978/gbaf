@@ -7,7 +7,7 @@ if (isset($_GET['username'])) {
     $user = $checkUser->fetch();
 
     if(isset($_POST['submit'])) {
-        if(!empty($_POST['password']) | !empty($_POST['password_confirm'])) {
+        if(!empty($_POST['password']) && !empty($_POST['password_confirm'])) {
             $password = htmlspecialchars($_POST['password']);
             $passwordConfirm = htmlspecialchars($_POST['password_confirm']);
 
@@ -21,10 +21,10 @@ if (isset($_GET['username'])) {
                 $_SESSION['successMsg'] = "Connectez-vous avec votre nouveau mot de passe !";
                 header('Location: index.php');
             } else {
-                $errorMsg = "Invalid password !";
+                $errorMsg = "Mot de passe invalide !";
             }
         } else {
-            $errorMsg = "Please complete all fields !";
+            $errorMsg = "Veuillez remplir tous les champs !";
         }
     }
 }
