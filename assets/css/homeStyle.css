@@ -36,8 +36,10 @@ nav {
     width: 70px;
 }
 
-.title-brand {
-    font-size: 18px;
+.brand {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
 }
 
 .user-session {
@@ -324,9 +326,6 @@ footer {
 
     .block-right {
         margin: 0;
-    }
-
-    .block-right {
         width: 100%;
     }
 
