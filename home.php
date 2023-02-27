@@ -1,9 +1,8 @@
 <?php
 require('actions/homeAction.php');
-
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -20,9 +19,6 @@ require('actions/homeAction.php');
             <div class="container">
                 <div class="logo">
                     <img src="../assets/images/logo-gbaf.png" alt="logo">
-                </div>
-                <div class="brand">
-                    <h2>Groupe Bancaire-Assurance Francais</h2>
                 </div>
                 <div class="user-session">
                     <?php if (isset($_SESSION['id'])) : ?>
@@ -51,7 +47,6 @@ require('actions/homeAction.php');
                 <h1>Le Groupe GBAF est une fédération représentant les 6 grands groupes français.</h1>
             </div>
             <div class="group-banner">
-
             </div>
         </div>
     </section>
@@ -107,10 +102,10 @@ require('actions/homeAction.php');
                         <div class="card-content">
                             <h2 class="partner-title"><?= $getPartner['name']; ?></h2>
                             <p class="exercpt">
-                                <?= $getPartner['content']; ?>
+                                <?= $getPartner['outline']; ?>
                             </p>
                             <div class="partner-cta">
-                                <a href="" class="button">Suite</a>
+                                <a href="partner.php?partner=<?= $getPartner['id']; ?>" class="button">Suite</a>
                             </div>
                         </div>
                     </div>
