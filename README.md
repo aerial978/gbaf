@@ -36,15 +36,6 @@ Git clone the project
 
 ## Usage
 
-### Roles
-
-#### Visitor
-
-Visitor privileges
-
-*   view tricks list
-*   view trick details
-
 #### User
 
 User access :
