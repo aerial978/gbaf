@@ -1,6 +1,6 @@
 # GBAF
 
-GBAF is a extranet providing resources for the employees of the various French banks (Groupement Banque Assurance Français).
+GBAF is a extranet providing resources for the employees of the various French banks (Groupement Banque Assurance Français) created in procedural PHP language.
 
 Project 3 of the Openclassrooms training "Prép'fullstack".
 
