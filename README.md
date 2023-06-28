@@ -26,3 +26,11 @@ The purpose of this extranet is to provide employees of major French groups with
 *  MySQL 5.7.36
 *  github/aerial978
 
+## Set Up
+
+Git clone the project
+
+```bash
+  https://github.com/aerial978/gbaf.git
+```
+
