@@ -34,3 +34,23 @@ Git clone the project
   https://github.com/aerial978/gbaf.git
 ```
 
+## Usage
+
+### Roles
+
+#### Visitor
+
+Visitor privileges
+
+*   view tricks list
+*   view trick details
+
+#### User
+
+User access :
+
+login with following account : 
+
+  *  username : 
+  *  password : 
+
