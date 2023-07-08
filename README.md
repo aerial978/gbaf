@@ -6,6 +6,8 @@ Project 3 of the Openclassrooms training "Prép'fullstack".
 
 The purpose of this extranet is to provide employees of major French groups with a single entry point listing a large amount of information on the group's partners and players as well as on banking and financial products and services.
 
+[![extranet](https://img.shields.io/badge/extranet-000?style=for-the-badge&logo=ko-fi&logoColor=white)]()
+
 ## Features
 
 * Authentication
