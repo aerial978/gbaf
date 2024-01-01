@@ -1,8 +1,15 @@
 <?php
-require('actions/database.php');
+require('database.php');
+require('authentificationAction.php');
+
+$req = $bdd->prepare('SELECT * FROM questions');
+$req->execute();
+$selectQuestions = $req->fetchAll(\PDO::FETCH_ASSOC);
 
 if(isset($_SESSION['id'])) {
-    $user = $bdd->prepare('SELECT * FROM user WHERE id = ?');
+    $user = $bdd->prepare('SELECT *, user.id as userId FROM user 
+    LEFT JOIN questions ON user.id_questions = questions.id
+    WHERE user.id = ?');
     $user->execute(array($_SESSION['id']));
     $account = $user->fetch();
 } else {
@@ -14,7 +21,7 @@ if(isset($_POST['submit'])) {
     $firstName = htmlspecialchars($_POST['firstname']);
     $lastName = htmlspecialchars($_POST['lastname']);
     $question = htmlspecialchars(($_POST['question']));
-    $answer = password_hash($_POST['answer'], PASSWORD_DEFAULT);
+    $answer = htmlspecialchars($_POST['answer']);
     $password = htmlspecialchars($_POST['password']);
     $passwordConfirm = htmlspecialchars($_POST['password_confirm']);
 
@@ -42,12 +49,15 @@ if(isset($_POST['submit'])) {
     if(empty($_POST['question'])) {
         $errorQuestion = 'Question invalide !';
     } else {
-        $updateQuestion = $bdd->prepare('UPDATE user SET question = ? WHERE id = ?');
-        $updateQuestion->execute(array($question,$_SESSION['id']));
+        $updateQuestion = $bdd->prepare('UPDATE user SET id_questions = :question WHERE id = :id');
+        $updateQuestion->execute([
+            'question' => $question,
+            'id' => $_SESSION['id']
+        ]);
     }
 
     if(empty($_POST['answer'])) {
-        $error['Answer'] = 'Réponse invalide !';
+        $errorAnswer = 'Réponse invalide !';
     } else {
         $updateAnswer = $bdd->prepare('UPDATE user SET answer = ? WHERE id = ?');
         $updateAnswer->execute(array($answer,$_SESSION['id']));
@@ -68,4 +78,5 @@ if(isset($_POST['submit'])) {
         header('Location: actions/logoutAction.php');
     }
 }
+?>
 

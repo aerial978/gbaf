@@ -1,5 +1,6 @@
 <?php
-require('actions/database.php');
+require('database.php');
+require('authentificationAction.php');
 
 if (isset($_GET['username'])) {
     $checkUser = $bdd->prepare('SELECT * FROM user WHERE username = ?');
@@ -28,3 +29,4 @@ if (isset($_GET['username'])) {
         }
     }
 }
+?>

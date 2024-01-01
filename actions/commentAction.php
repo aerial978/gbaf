@@ -1,5 +1,5 @@
 <?php
-require('actions/database.php');
+require('database.php');
 
 if (isset($_POST['submit'])) {
     if (!empty($_POST['texte'])) {
@@ -11,6 +11,6 @@ if (isset($_POST['submit'])) {
             'lastname' => $_SESSION['lastname'],
             'texte' => $texte
         ]);
-
     }
 }
+?>

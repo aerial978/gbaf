@@ -35,8 +35,17 @@ require('actions/questionAction.php');
                         <input class="input" type="text" name="username" disabled value="<?= $user['username'] ?>">
                     </div>
                     <div class="field">
-                        <label for="username">Question</label>
-                        <input class="input" type="text" name="question" disabled value="<?= $user['question'] ?>">
+                        <label for="question">Question secrète</label>
+                        <select name="question">
+                            <option value="0">-- Choisissez une question --</option>
+                            <?php if(count($selectQuestions)>0) : ?>
+                                <?php for ($i=0; $i<count($selectQuestions); $i++) : ?>
+                                    <option value="<?= $selectQuestions[$i]['id']?>"
+                                        <?= isset($user['id_questions']) && $selectQuestions[$i]['id'] == $user['id_questions'] ? "selected" : "" ?>><?= $selectQuestions[$i]['content']?>
+                                    </option>
+                                <?php endfor; ?>    
+                            <?php endif; ?>
+                        </select>     
                     </div>
                     <div class="field">
                         <label for="answer">Répondre</label>
