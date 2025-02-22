@@ -10,7 +10,7 @@ require('actions/homeAction.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../assets/css/homeStyle.css">
+    <link rel="stylesheet" href="assets/css/homeStyle.css">
 </head>
 
 <body>
@@ -18,17 +18,17 @@ require('actions/homeAction.php');
         <nav>
             <div class="container">
                 <div class="logo">
-                    <img src="../assets/images/logo-gbaf.png" alt="logo">
+                    <img src="assets/images/logo-gbaf.png" alt="logo">
                 </div>
                 <div class="user-session">
-                    <?php if (isset($_SESSION['id'])) : ?>
+                    <?php if (isset($_SESSION['user'])) : ?>
                         <div class="avatar-user">  
-                            <a href="account_user.php?id=<?= $_SESSION['id']; ?>"><img src="../assets/images/user-default.png" alt="avatar"></a>
+                            <a href="account_user.php?id=<?= $_SESSION['user']['id']; ?>"><img src="assets/images/user-default.png" alt="avatar"></a>
                         </div>
                     <?php endif; ?>
-                    <?php if (isset($_SESSION['auth'])) : ?>
+                    <?php if (isset($_SESSION['user'])) : ?>
                         <div class="username">
-                            <p><?= $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?></p>
+                            <p><?= $_SESSION['user']['firstName'] . ' ' . $_SESSION['user']['lastName']; ?></p>
                         </div>
                     <?php endif; ?>
                     <a class="rounded-button" href="actions/logoutAction.php"><i class="fas fa-sign-out-alt"></i></a>
@@ -80,7 +80,7 @@ require('actions/homeAction.php');
                 </div>
             </div>
             <div class="block-right">
-                <img src="../assets/images/meeting.jpg">
+                <img src="assets/images/meeting.jpg">
             </div>
         </div>
     </section>

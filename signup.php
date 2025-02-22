@@ -44,7 +44,16 @@ require('actions/signupAction.php');
                     </div>
                     <div class="field">
                         <label for="question">Question secrète</label>
-                        <input class="input" type="text" name="question">
+                        <select name="question">
+                            <option value="0">-- Choisissez une question --</option>
+                            <?php if(count($selectQuestions) > 0) : ?>
+                                <?php for ($i=0; $i<count($selectQuestions); $i++) : ?>
+                                    <option <?= isset($_POST['question']) && $_POST['question'] == $selectQuestions[$i]['id'] ? "selected" : "" ; ?> 
+                                        value="<?= $selectQuestions[$i]['id'];?>"><?= $selectQuestions[$i]['content'];?>
+                                    </option>
+                                <?php endfor; ?>    
+                            <?php endif; ?> 
+                        </select>
                     </div>
                     <div class="field">
                         <label for="answer">Réponse secrète</label>

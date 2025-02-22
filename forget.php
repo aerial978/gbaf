@@ -35,6 +35,9 @@ require('actions/forgetAction.php');
                         <input class="input" type="text" name="username">
                     </div>
                     <button class="btn" type="submit" name="submit">Soumettre</button>
+                    <div class="form-link">
+                        <a href="index.php"><p>Retour</p></a>
+                    </div>
                 </form>
             </div>
         </div>

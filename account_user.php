@@ -59,19 +59,23 @@ require('actions/accountUserAction.php');
                     </div>
                     <div class="field form-field">
                         <label for="question">Question secrète</label>
-                        <input class="input" type="text" name="question" value="<?= isset($_POST['question']) ? $_POST['question'] :  $account['question'] ?>">
-                        <small class="error-field">
-                            <?php if (isset($errorQuestion)) : ?>
-                                <?= $errorQuestion; ?>
+                        <select name="question">
+                            <option value="0">-- Choisissez une question --</option>
+                            <?php if(count($selectQuestions)>0) : ?>
+                                <?php for ($i=0; $i<count($selectQuestions); $i++) : ?>
+                                    <option value="<?= $selectQuestions[$i]['id']?>"
+                                        <?= isset($account['id_questions']) && $selectQuestions[$i]['id'] == $account['id_questions'] ? "selected" : "" ?>><?= $selectQuestions[$i]['content']?>
+                                    </option>
+                                <?php endfor; ?>    
                             <?php endif; ?>
-                        </small>
+                        </select>       
                     </div>
                     <div class="field form-field">
                         <label for="answer">Réponse secrète</label>
-                        <input class="input" type="text" name="answer">
+                        <input class="input" type="text" name="answer" value="<?= isset($_POST['answer']) ? $_POST['answer'] :  $account['answer'] ?>">
                         <small class="error-field">
-                            <?php if (isset($error['Answer'])) : ?>
-                                <?= $error['Answer']; ?>
+                            <?php if (isset($errorAnswer)) : ?>
+                                <?= $errorAnswer; ?>
                             <?php endif; ?>
                         </small>
                     </div>

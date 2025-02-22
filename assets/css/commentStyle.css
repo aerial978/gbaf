@@ -33,6 +33,11 @@ body {
     justify-content: space-between;
 }
 
+.comment-count {
+    display: flex;
+    align-items: center;
+}
+
 .comment-button {
     background-color: #007bff;
     color: white;
@@ -86,6 +91,7 @@ body {
 .comment-top {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .sign-form {
@@ -179,8 +185,6 @@ body {
     top: 0px;
 }
 
-
-
 @media(max-width: 576px) {
     .logo img {
         width: 80px;
@@ -208,6 +212,11 @@ body {
     .sign-form .form-link {
         font-size: 13px;
     }
+}
+
+.already-comment {
+    display: flex;
+    align-items: center;
 }
 
 

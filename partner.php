@@ -12,8 +12,8 @@ require('actions/partnerAction.php');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../assets/css/partnerStyle.css">
-    <link rel="stylesheet" href="../assets/css/commentStyle.css">
+    <link rel="stylesheet" href="assets/css/partnerStyle.css">
+    <link rel="stylesheet" href="assets/css/commentStyle.css">
     <link rel="stylesheet" href="assets/css/msgStyle.css">
 </head>
 <body>
@@ -21,17 +21,17 @@ require('actions/partnerAction.php');
         <nav>
             <div class="container">
                 <div class="logo">
-                    <a href="home.php"><img src="../assets/images/logo-gbaf.png" alt="logo"></a>
+                    <a href="home.php"><img src="assets/images/logo-gbaf.png" alt="logo"></a>
                 </div>
                 <div class="user-session">
-                    <?php if (isset($_SESSION['id'])) : ?>
+                    <?php if (isset($_SESSION['user'])) : ?>
                         <div class="avatar-user">  
-                            <a href="account_user.php?id=<?= $_SESSION['id']; ?>"><img src="../assets/images/user-default.png" alt="avatar"></a>
+                            <a href="account_user.php?id=<?= $_SESSION['user']['id']; ?>"><img src="assets/images/user-default.png" alt="avatar"></a>
                         </div>
                     <?php endif; ?>
-                    <?php if (isset($_SESSION['auth'])) : ?>
+                    <?php if (isset($_SESSION['user'])) : ?>
                         <div class="username">
-                            <p><?= $_SESSION['firstname'] . ' ' . $_SESSION['lastname']; ?></p>
+                            <p><?= $_SESSION['user']['firstName'] . ' ' . $_SESSION['user']['lastName']; ?></p>
                         </div>
                     <?php endif; ?>
                     <a class="rounded-button" href="actions/logoutAction.php"><i class="fas fa-sign-out-alt"></i></a>
@@ -62,22 +62,24 @@ require('actions/partnerAction.php');
     <div class="container-comment">
         <section class="comment-block">
             <div class="top">
-                <?php foreach($countCommentsPartners as $countCommentsPartner): ?>
-                    <h3 class="comment-number"><?= $countCommentsPartner['total']; ?> commentaire(s)</h3>
+                <?php foreach($countCommentsPartners as $countCommentsPartner) : ?>
+                    <h3 class="comment-count"><?= $countCommentsPartner['total']; ?> commentaire(s)</h3>
                 <?php endforeach; ?>
                 <?php if(empty($verifComment)) : ?>
                     <button id="show" onclick="show()" class="comment-button">Nouveau commentaire</button>
                 <?php else : ?>
-                <p>déjà commenté !</p>
+                    <div class="success-msg already-comment">
+                        Vous avez déjà commenté cet acteur/partenaire !
+                    </div>
                 <?php endif; ?>
                 <!-- Like dislike buttons -->
                 <div class="likedislike">
                     <div class="like">
-                        <a href="actions/partnerAction.php?likedislike=1&id=<?= $_GET['partner'] ?>"><i class="fa fa-thumbs-up fa-xl"></i></a>
+                    <a href="partner.php?likedislike=1&partner=<?= $_GET['partner'] ?>"><i class="fa fa-thumbs-up fa-xl"></i></a>
                         <span><?= $likes; ?></span>
                     </div>
                     <div class="dislike">
-                        <a href="actions/partnerAction.php?likedislike=2&id=<?= $_GET['partner'] ?>"><i class="fa fa-thumbs-down fa-xl"></i></a>
+                        <a href="partner.php?likedislike=2&partner=<?= $_GET['partner'] ?>"><i class="fa fa-thumbs-down fa-xl"></i></a>
                         <span><?= $dislikes; ?></span>
                     </div>
                 </div>
@@ -94,7 +96,7 @@ require('actions/partnerAction.php');
                 <form class="sign-form" method="POST">
                     <div class="field">
                         <label>Nom</label>
-                        <input class="input" type="text" name="lastname" value="<?= $_SESSION['lastname'];?>" disabled>
+                        <input class="input" type="text" name="lastname" value="<?= $_SESSION['user']['lastName'];?>" disabled>
                     </div>
                     <div class="field">
                         <label>Texte</label>
@@ -147,6 +149,8 @@ require('actions/partnerAction.php');
         document.getElementById('show').style.display="inline"
     }
 </script>
+
+
 
 
 

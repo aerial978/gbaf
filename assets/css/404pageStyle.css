@@ -1,0 +1,38 @@
+.error-section h1 {
+    font-size: 80px;
+    color: #EF233c;
+    text-align: center;
+}
+
+.error-section h2 {
+    font-size: 40px;
+}
+
+.error-section img {
+    text-align: center;
+}
+
+.error-section .logo-error {
+    display: flex;
+    justify-content: center;
+}
+
+.error-section .form-link .btn {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 18px;
+    margin: 15px 0;
+    border: 0;
+    color: #F8F8FF;
+    background: #EF233c;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.error-section .form-link a {
+    text-decoration: none;
+    color: #F8F8FF;
+}
+
+
+

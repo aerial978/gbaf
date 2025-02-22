@@ -1,5 +1,5 @@
 <?php
-require('actions/database.php');
+require('database.php');
 
 if (isset($_POST['submit'])) {
     if (!empty($_POST['username'])) {
@@ -20,6 +20,7 @@ if (isset($_POST['submit'])) {
         $errorMsg = "Pseudo invalide !";
     }
 }
+?>
 
 
 
