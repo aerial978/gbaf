@@ -9,10 +9,20 @@ catch(Exception $e) {
 
 session_start();
 
-define("DBHOST", "localhost");
+if (str_contains($_SERVER['HTTP_HOST'], 'michel-hathier.fr')) {
+
+	define("DBHOST", "localhost");
+	define("DBUSER", "einx0252_gbaf");
+	define("DBPASS", "iyUP7L4aDspE");
+	define("DBNAME", "einx0252_gbaf");
+
+} else {
+
+	define("DBHOST", "localhost");
 	define("DBUSER", "root");
 	define("DBPASS", "");
 	define("DBNAME", "gbaf");
+}
 
 	$dsn = "mysql:dbname=".DBNAME.";host=".DBHOST;
 
